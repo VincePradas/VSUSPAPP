@@ -17,7 +17,7 @@ const DashboardScreen = ({ navigation }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const menuAnimation = new Animated.Value(0); // For animating the menu
+  const menuAnimation = new Animated.Value(0);
 
   useEffect(() => {
     fetchData();
@@ -60,7 +60,7 @@ const DashboardScreen = ({ navigation }) => {
   const handleLogout = async () => {
     await AsyncStorage.removeItem("user");
     await AsyncStorage.removeItem("settings");
-    navigation.replace("Login"); // Replace with your login screen name
+    navigation.replace("Login");
   };
 
   const ScheduleCard = ({ code, title, time, lecturer }) => (
@@ -108,10 +108,9 @@ const DashboardScreen = ({ navigation }) => {
     );
   }
 
-  // Menu animation interpolation
   const menuHeight = menuAnimation.interpolate({
     inputRange: [0, 1],
-    outputRange: [0, 100], // Adjust height as needed
+    outputRange: [0, 100],
   });
 
   return (

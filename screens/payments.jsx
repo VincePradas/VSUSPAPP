@@ -18,7 +18,6 @@ const PaymentsPage = () => {
   const [error, setError] = useState(null);
   const navigation = useNavigation();
 
-  // State for year and period
   const [year, setYear] = useState("2024");
   const [period, setPeriod] = useState("1");
 
@@ -97,11 +96,11 @@ const PaymentsPage = () => {
     );
   }
 
-  // Calculate total fees, payments, and balance dynamically
-  const totalFees = 6636.0; // Replace with dynamic calculation if available
+  const totalFees = 6636.0;
   const totalPayments = payments.transactions.reduce(
     (sum, transaction) =>
-      sum + transaction.or_details.reduce((acc, detail) => acc + detail.amount, 0),
+      sum +
+      transaction.or_details.reduce((acc, detail) => acc + detail.amount, 0),
     0
   );
   const balance = totalFees - totalPayments;
@@ -120,7 +119,8 @@ const PaymentsPage = () => {
         <Text style={styles.headerTitle}>Payments</Text>
         <Text style={styles.headerSubtitle}>Main Campus</Text>
         <Text style={styles.headerSubtitle}>
-          SY {year} - {parseInt(year) + 1} / {period === "1" ? "First" : "Second"} Semester
+          SY {year} - {parseInt(year) + 1} /{" "}
+          {period === "1" ? "First" : "Second"} Semester
         </Text>
       </View>
 
@@ -207,8 +207,9 @@ const PaymentsPage = () => {
       <View style={styles.footerContainer}>
         <Text style={styles.footerText}>
           This app is not authorized by VSU. I built this as my personal project
-          for quick checking of my grades, providing a more convenient alternative
-          to using the official website. Please use this app responsibly.
+          for quick checking of my grades, providing a more convenient
+          alternative to using the official website. Please use this app
+          responsibly.
         </Text>
       </View>
     </ScrollView>

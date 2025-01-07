@@ -8,7 +8,7 @@ import {
   Alert,
   StyleSheet,
   Modal,
-  Pressable
+  Pressable,
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/native";
@@ -17,7 +17,7 @@ const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const [modalVisible, setModalVisible] = useState(false); // State to control modal visibility
+  const [modalVisible, setModalVisible] = useState(false);
 
   const apiUrl = "https://c1-student.vsu.edu.ph";
   const navigation = useNavigation();
@@ -81,7 +81,8 @@ const LoginPage = () => {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
-          Authorization: `Token ${token}`},
+          Authorization: `Token ${token}`,
+        },
       });
 
       if (!settingsResponse.ok) {
@@ -159,7 +160,10 @@ const LoginPage = () => {
       {/* Note Text */}
       <TouchableOpacity onPress={() => setModalVisible(true)}>
         <Text style={styles.noteText}>
-          This app is not authorized by VSU. I built this as my personal project for quick checking of my grades, providing a more convenient alternative to using the official website. Please use this app responsibly.
+          This app is not authorized by VSU. I built this as my personal project
+          for quick checking of my grades, providing a more convenient
+          alternative to using the official website. Please use this app
+          responsibly.
         </Text>
       </TouchableOpacity>
 
@@ -174,7 +178,10 @@ const LoginPage = () => {
           <View style={styles.modalContainer}>
             <Text style={styles.modalTitle}>Important Note</Text>
             <Text style={styles.modalText}>
-              This app is not authorized by VSU. I built this as my personal project for quick checking of my grades, providing a more convenient alternative to using the official website. Please use this app responsibly.
+              This app is not authorized by VSU. I built this as my personal
+              project for quick checking of my grades, providing a more
+              convenient alternative to using the official website. Please use
+              this app responsibly.
             </Text>
             <Pressable
               style={styles.closeButton}

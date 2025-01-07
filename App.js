@@ -1,8 +1,6 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-
-// Import your screens
 import LoginPage from './screens/login';
 import DashboardScreen from './screens/dashboard';
 import GradesScreen from './screens/grades';
@@ -35,7 +33,7 @@ const App = () => {
           component={GradesScreen}
           options={{ headerShown: false }}
         />
-        {/* Grades Screen */}
+        {/* Payments Screen */}
         <Stack.Screen
           name="Payments"
           component={PaymentsSceen}

@@ -11,7 +11,7 @@ import {
 import { Picker } from "@react-native-picker/picker";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/native";
-import Icon from "react-native-vector-icons/Ionicons"; 
+import Icon from "react-native-vector-icons/Ionicons";
 
 const GradesTab = () => {
   const [grades, setGrades] = useState(null);
@@ -19,13 +19,12 @@ const GradesTab = () => {
   const [error, setError] = useState(null);
   const navigation = useNavigation();
 
-  
   const [year, setYear] = useState("2024");
   const [period, setPeriod] = useState("1");
 
   useEffect(() => {
     fetchGrades();
-  }, [year, period]); 
+  }, [year, period]);
 
   const fetchGrades = async () => {
     try {
@@ -112,10 +111,11 @@ const GradesTab = () => {
         </TouchableOpacity>
         <View style={styles.titleContainer}>
           <Text style={styles.headerTitle}>Grades</Text>
-                  <Text style={styles.headerSubtitle}>Main Campus</Text>
-        <Text style={styles.headerSubtitle}>
-          SY {year} - {parseInt(year) + 1} / {period === "1" ? "First" : "Second"} Semester
-        </Text>
+          <Text style={styles.headerSubtitle}>Main Campus</Text>
+          <Text style={styles.headerSubtitle}>
+            SY {year} - {parseInt(year) + 1} /{" "}
+            {period === "1" ? "First" : "Second"} Semester
+          </Text>
         </View>
       </View>
 
@@ -317,7 +317,7 @@ const styles = StyleSheet.create({
   backText: {
     fontFamily: "Poppins-Regular",
     fontSize: 16,
-    color: "#6C63FF", 
+    color: "#6C63FF",
     marginLeft: 8,
   },
   titleContainer: {
